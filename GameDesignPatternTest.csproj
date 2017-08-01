@@ -76,7 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MCScript\GameLoop.cs" />
+    <Compile Include="Assets\MCScript\IAttrStrategy.cs" />
     <Compile Include="Assets\MCScript\ICharacter.cs" />
+    <Compile Include="Assets\MCScript\ICharacterAttr.cs" />
     <Compile Include="Assets\MCScript\IEnemy.cs" />
     <Compile Include="Assets\MCScript\ISoldier.cs" />
     <Compile Include="Assets\MCScript\IWeapon.cs" />

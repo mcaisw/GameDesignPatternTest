@@ -10,10 +10,7 @@ public abstract class ICharacter {
 
     public ICharacter() { }
 
-    #region 属性
-    protected float Health = 0;//生命值
-    protected float MoveSpeed = 0;//移动速度
-    #endregion
+   
 
     #region 功能
     //设置使用的武器
