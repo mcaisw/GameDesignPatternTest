@@ -1,1 +1,1 @@
-# GameDesignPatternTest
+这是我学习《设计模式与游戏完美开发》一书做的练习。放到GitHub上，做备份，记录自己的学习过程。这也是我第一次使用GitHub。^_^
