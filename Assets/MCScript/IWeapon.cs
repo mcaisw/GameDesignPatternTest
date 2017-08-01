@@ -14,6 +14,11 @@ public abstract class IWeapon{
     protected int mc_ATK = 0;//攻击力
     protected float mc_Distance = 0;//攻击距离
 
+    public GameObject Weapon_Model
+    {
+        get { return mc_WeaponGameObject; }
+    }
+
     //功能
     public abstract void SetOwner(ICharacter Owner);//设置武器的拥有者
     public abstract void Fire(ICharacter theTarget);//攻击

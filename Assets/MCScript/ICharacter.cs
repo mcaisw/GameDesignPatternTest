@@ -19,6 +19,9 @@ public abstract class ICharacter {
         }
         mc_weapon = weapon;
         mc_weapon.SetOwner(this);
+
+        //设置武器的层级和位置
+        UIToolMadeByMC.Attach(mc_gameobject,mc_weapon.Weapon_Model,Vector3.zero);
     }
     //获取武器
     //武器攻击目标
