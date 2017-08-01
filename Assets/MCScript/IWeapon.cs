@@ -10,7 +10,8 @@ public abstract class IWeapon{
 
     //引用
     protected ICharacter m_WeaponOwner = null;
-    //属性
+
+    #region 属性
     protected int mc_ATK = 0;//攻击力
     protected float mc_Distance = 0;//攻击距离
 
@@ -18,6 +19,7 @@ public abstract class IWeapon{
     {
         get { return mc_WeaponGameObject; }
     }
+    #endregion
 
     //功能
     public abstract void SetOwner(ICharacter Owner);//设置武器的拥有者
