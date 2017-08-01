@@ -14,7 +14,6 @@ public abstract class IWeapon{
     protected int mc_ATK = 0;//攻击力
     protected float mc_Distance = 0;//攻击距离
 
-
     //功能
     public abstract void Fire(ICharacter theTarget);//攻击
 }

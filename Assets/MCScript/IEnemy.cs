@@ -9,7 +9,7 @@ public abstract class IEnemy : ICharacter
     //属性
 
     //功能
-    public override void UnderAttack()
+    public override void UnderAttack(ICharacter Attacker)
     {
         throw new NotImplementedException("敌人受到攻击");
     }

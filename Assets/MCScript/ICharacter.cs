@@ -11,6 +11,6 @@ public abstract class ICharacter {
     public ICharacter() { }
 
     //功能
-    public abstract void UnderAttack();//被攻击
+    public abstract void UnderAttack(ICharacter Attacker);//被攻击
 
 }
