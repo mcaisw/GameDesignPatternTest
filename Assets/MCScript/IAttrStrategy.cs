@@ -1,16 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*角色属性计算类，之所以把它声明成抽象类，是因为士兵和敌人都有各自的计算方案*/
+public abstract class IAttrStrategy {
 
-public class IAttrStrategy : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
+public class SoldierAttrStrategy : IAttrStrategy { }
+
+public class EnemyAttrStrategy : IAttrStrategy { }
