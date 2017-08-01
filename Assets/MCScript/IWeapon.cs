@@ -15,12 +15,24 @@ public abstract class IWeapon{
     protected float mc_Distance = 0;//攻击距离
 
     //功能
+    public abstract void SetOwner(ICharacter Owner);//设置武器的拥有者
     public abstract void Fire(ICharacter theTarget);//攻击
+    public abstract void Release();
 }
 
 public class WeaponGun : IWeapon
 {
     public override void Fire(ICharacter theTarget)
+    {
+        theTarget.UnderAttack(m_WeaponOwner);
+    }
+
+    public override void Release()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void SetOwner(ICharacter Owner)
     {
         throw new NotImplementedException();
     }
@@ -29,6 +41,16 @@ public class WeaponGun : IWeapon
 public class WeaponRocket : IWeapon
 {
     public override void Fire(ICharacter theTarget)
+    {
+        theTarget.UnderAttack(m_WeaponOwner);
+    }
+
+    public override void Release()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void SetOwner(ICharacter Owner)
     {
         throw new NotImplementedException();
     }

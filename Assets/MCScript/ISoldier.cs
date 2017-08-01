@@ -8,7 +8,7 @@ public abstract class ISoldier :ICharacter
     //属性
 
     //功能
-    public override void UnderAttack()
+    public override void UnderAttack(ICharacter Attacker)
     {
         throw new NotImplementedException("士兵受到攻击");
     }

@@ -4,13 +4,25 @@ using UnityEngine;
 
 public abstract class ICharacter {
 
-    //属性
-
     protected GameObject mc_gameobject = null;//unity模型
-    //角色接口
+
+    protected IWeapon mc_weapon = null;
+
     public ICharacter() { }
 
-    //功能
-    public abstract void UnderAttack(ICharacter Attacker);//被攻击
+    //设置使用的武器
+    public void SetWeapon(IWeapon weapon)
+    {
+        if (mc_weapon!=null)
+        {
+            mc_weapon.Release();
+        }
+        mc_weapon = weapon;
+        mc_weapon.SetOwner(this);
+    }
+    //获取武器
+    //武器攻击目标
+    //被攻击
+    public abstract void UnderAttack(ICharacter Attacker);
 
 }
