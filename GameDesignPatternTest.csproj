@@ -79,6 +79,7 @@
     <Compile Include="Assets\MCScript\ICharacter.cs" />
     <Compile Include="Assets\MCScript\IEnemy.cs" />
     <Compile Include="Assets\MCScript\ISoldier.cs" />
+    <Compile Include="Assets\MCScript\IWeapon.cs" />
     <Compile Include="Assets\MCScript\StatePatternTest.cs" />
     <Compile Include="Assets\MCScript\UITool.cs" />
   </ItemGroup>
