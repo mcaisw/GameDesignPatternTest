@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public abstract class ICharacter {
 
-    protected GameObject mc_gameobject = null;//unity模型
+    protected GameObject mc_gameobject = null;//这是个引用，unity模型，用来指向使用的是unity创建出来的哪个模型
 
     protected IWeapon mc_weapon = null;//引用
     protected ICharacterAttr mc_CharacterAttr = null;
@@ -48,6 +48,7 @@ public abstract class ICharacter {
 
     //被攻击
     public abstract void UnderAttack(ICharacter Attacker);
+
     //设置角色属性
     public virtual void SetCharacterAttr(ICharacterAttr CharacterAttr) {
         mc_CharacterAttr = CharacterAttr;

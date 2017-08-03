@@ -12,4 +12,20 @@ public abstract class ISoldier :ICharacter
     {
         throw new NotImplementedException("士兵受到攻击");
     }
+    public override void Attack(ICharacter character)
+    {
+        throw new NotImplementedException();
+    }
+   
 }
+
+//新兵
+public class SoldierRookie : ISoldier
+{
+    
+}
+//中士
+public class SodierSergent : ISoldier { }
+
+//首长
+public class SodierCaptain : ISoldier { }
