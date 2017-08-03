@@ -40,14 +40,6 @@ public abstract class IWeapon{
 
 public class WeaponGun : IWeapon
 {
-    public override void Fire(ICharacter theTarget)
-    {
-        ShowBulletEffect();//由于WeaponGun继承IWeapon，所以直接可以使用ShowBulletEffect方法
-        ShowShootEffect();
-        ShowSoundEffect();
-        theTarget.UnderAttack(m_WeaponOwner);
-    }
-
     public override void ShowBulletEffect() { }
     public override void ShowShootEffect() { }
     public override void ShowSoundEffect() { }
@@ -65,13 +57,7 @@ public class WeaponGun : IWeapon
 
 public class WeaponRocket : IWeapon
 {
-    public override void Fire(ICharacter theTarget)
-    {
-        ShowBulletEffect();
-        ShowShootEffect();
-        ShowSoundEffect();
-        theTarget.UnderAttack(m_WeaponOwner);
-    }
+    
     public override void ShowBulletEffect() { }
     public override void ShowShootEffect() { }
     public override void ShowSoundEffect() { }
