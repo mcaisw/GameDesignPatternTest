@@ -25,12 +25,19 @@ public abstract class IWeapon{
     public abstract void SetOwner(ICharacter Owner);//设置武器的拥有者
     public abstract void Fire(ICharacter theTarget);//攻击
     public abstract void Release();
+
+    protected void ShowBulletEffect() { }
+    protected void ShowShootEffect() { }
+    protected void ShowSoundEffect() { }
 }
 
 public class WeaponGun : IWeapon
 {
     public override void Fire(ICharacter theTarget)
     {
+        ShowBulletEffect();//由于WeaponGun继承IWeapon，所以直接可以使用ShowBulletEffect方法
+        ShowShootEffect();
+        ShowSoundEffect();
         theTarget.UnderAttack(m_WeaponOwner);
     }
 
@@ -49,6 +56,9 @@ public class WeaponRocket : IWeapon
 {
     public override void Fire(ICharacter theTarget)
     {
+        ShowBulletEffect();
+        ShowShootEffect();
+        ShowSoundEffect();
         theTarget.UnderAttack(m_WeaponOwner);
     }
 
