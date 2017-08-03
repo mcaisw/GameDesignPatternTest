@@ -5,7 +5,7 @@ using UnityEngine;
 /*角色属性类，之所以把它声明成抽象类，是因为士兵和敌人都有各自不同的属性*/
 public abstract class ICharacterAttr{
 
-    protected IAttrStrategy mc_AttrStrategy = null;//引用
+    protected IAttrStrategy mc_AttrStrategy = null;//引用,要使用角色属性计算办法
 
     public ICharacterAttr() { }
 
@@ -26,6 +26,15 @@ public abstract class ICharacterAttr{
     public void SetAttrStrategy(IAttrStrategy AttrStrategy) {
         mc_AttrStrategy = AttrStrategy;
     }
+    //获取计算策略
+    public IAttrStrategy GetAttrStrategy() {
+        return mc_AttrStrategy;
+    }
+
+    public virtual void InitAttr() {
+        mc_AttrStrategy.InitAttr(this);
+    }
+
 
 }
 

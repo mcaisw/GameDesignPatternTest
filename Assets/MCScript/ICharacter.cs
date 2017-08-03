@@ -7,6 +7,7 @@ public abstract class ICharacter {
     protected GameObject mc_gameobject = null;//unity模型
 
     protected IWeapon mc_weapon = null;//引用
+    protected ICharacterAttr mc_CharacterAttr = null;
 
     public ICharacter() { }
 
@@ -38,6 +39,11 @@ public abstract class ICharacter {
 
     //被攻击
     public abstract void UnderAttack(ICharacter Attacker);
+    public virtual void SetCharacterAttr(ICharacterAttr CharacterAttr) {
+        mc_CharacterAttr = CharacterAttr;
+        mc_CharacterAttr.InitAttr();
+    }
+
     #endregion
 
 
