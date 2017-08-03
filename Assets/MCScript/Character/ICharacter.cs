@@ -48,9 +48,11 @@ public abstract class ICharacter {
 
     //被攻击
     public abstract void UnderAttack(ICharacter Attacker);
+    //设置角色属性
     public virtual void SetCharacterAttr(ICharacterAttr CharacterAttr) {
         mc_CharacterAttr = CharacterAttr;
         mc_CharacterAttr.InitAttr();
+        mc_NavMeshAgent.speed = mc_CharacterAttr.MoveSpeed;
     }
 
     #endregion
