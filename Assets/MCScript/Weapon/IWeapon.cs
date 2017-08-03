@@ -23,7 +23,11 @@ public abstract class IWeapon{
 
     //功能
     public abstract void SetOwner(ICharacter Owner);//设置武器的拥有者
-    public abstract void Fire(ICharacter theTarget);//攻击
+    //攻击
+    public void Fire(ICharacter theTarget)
+    {
+
+    }
     public abstract void Release();
 
     protected void ShowBulletEffect() { }
