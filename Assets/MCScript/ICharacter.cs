@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class ICharacter {
 
@@ -9,11 +10,19 @@ public abstract class ICharacter {
     protected IWeapon mc_weapon = null;//引用
     protected ICharacterAttr mc_CharacterAttr = null;
 
+    protected NavMeshAgent mc_NavMeshAgent = null;
+
     public ICharacter() { }
 
-   
+
 
     #region 功能
+
+    //设定模型
+    public void SetGameobject(GameObject GameModel) {
+        mc_gameobject = GameModel;
+        mc_NavMeshAgent = mc_gameobject.GetComponent<NavMeshAgent>();
+    }
     //设置使用的武器
     public void SetWeapon(IWeapon weapon)
     {
