@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/McGame.unity
+- path: Assets/Scene/MainMenuState.unity
   isLoaded: 1
   isActive: 1
