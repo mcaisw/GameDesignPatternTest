@@ -23,16 +23,19 @@ public abstract class IWeapon{
 
     //功能
     public abstract void SetOwner(ICharacter Owner);//设置武器的拥有者
+
     //攻击
     public void Fire(ICharacter theTarget)
     {
-
+        ShowShootEffect();
+        ShowBulletEffect();
+        ShowSoundEffect();
     }
     public abstract void Release();
 
-    protected void ShowBulletEffect() { }
-    protected void ShowShootEffect() { }
-    protected void ShowSoundEffect() { }
+    public abstract void ShowBulletEffect();
+    public abstract void ShowShootEffect();
+    public abstract void ShowSoundEffect();
 }
 
 public class WeaponGun : IWeapon
@@ -44,6 +47,10 @@ public class WeaponGun : IWeapon
         ShowSoundEffect();
         theTarget.UnderAttack(m_WeaponOwner);
     }
+
+    public override void ShowBulletEffect() { }
+    public override void ShowShootEffect() { }
+    public override void ShowSoundEffect() { }
 
     public override void Release()
     {
@@ -65,6 +72,9 @@ public class WeaponRocket : IWeapon
         ShowSoundEffect();
         theTarget.UnderAttack(m_WeaponOwner);
     }
+    public override void ShowBulletEffect() { }
+    public override void ShowShootEffect() { }
+    public override void ShowSoundEffect() { }
 
     public override void Release()
     {
