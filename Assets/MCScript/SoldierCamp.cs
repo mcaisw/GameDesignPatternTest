@@ -35,4 +35,31 @@ public class SoldierCamp
     {
         throw new NotImplementedException();
     }
+
+    //训练Sergent
+    public ISoldier TrainSergent()
+    {
+        //产生对象
+        SodierSergent theSoldier = new SodierSergent();
+        //设置模型
+
+        //加入武器
+
+        //获取Soldier属性，设置给角色
+
+        return theSoldier as ISoldier;
+    }
+
+    //训练Captain
+    public ISoldier TrainCaptain() {
+        //产生对象
+        SodierCaptain theSoldier = new SodierCaptain();
+        //设置模型
+
+        //加入武器
+
+        //获取Soldier属性，设置给角色
+
+        return theSoldier as ISoldier;
+    }
 }
