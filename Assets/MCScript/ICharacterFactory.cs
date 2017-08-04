@@ -28,3 +28,26 @@ public class ConcreteCharacterFactory : ICharacterFactory
         return theSoldier;
     }
 }
+
+public abstract class ConcreteCharacterFactoryWithTemplatePattern : ICharacterFactory
+{
+    public abstract void AddWeapon();
+    public abstract void AddGameObject();
+
+
+    //整合原来的SoldierCamp产生士兵,StageSystem产生敌人
+    public override IEnemy CreatEnemy()
+    {
+
+        IEnemy theEnemy = null;
+
+        return theEnemy;
+    }
+
+    public override ISoldier CreatSoldier()
+    {
+        ISoldier theSoldier = null;
+
+        return theSoldier;
+    }
+}
