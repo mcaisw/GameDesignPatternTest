@@ -5,10 +5,13 @@ using UnityEngine;
 public class Test
 {
     GameObject cube = null;
-   
-    public void TestFunc(GameObject temp)
+
+    public void GetTheCube(GameObject temp)
     {
         cube = temp;
+    }
+    public void TestFunc()
+    {
         Debug.Log(cube);
     }
 }

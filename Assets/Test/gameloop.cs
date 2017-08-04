@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class gameloop : MonoBehaviour {
+public  class gameloop : MonoBehaviour
+{
+    GameObject theCube = null;
     public static gameloop instance;
     CubeCreator cubeCreat = new CubeCreator();
     Test test = new Test();
+
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         instance = this;
-        cubeCreat.CreatCube("Enemy3");
-        test.TestFunc(cubeCreat.CreatCube("Enemy3"));
+        theCube= cubeCreat.CreatCube("Enemy3");
+        test.GetTheCube(theCube);
+        test.TestFunc();
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
