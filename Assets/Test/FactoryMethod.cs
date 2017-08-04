@@ -32,6 +32,14 @@ public abstract class Product
     public virtual void AddPart(string Part) {
         mc_Part.Add(Part);
     }
+
+    public void ShowProduct()
+    {
+        foreach (var item in mc_Part)
+        {
+            Debug.Log(item);
+        }
+    }
 }
 
 public class ConcreteProductA : Product
