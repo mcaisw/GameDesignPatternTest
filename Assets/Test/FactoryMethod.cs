@@ -27,7 +27,11 @@ public class FactoryMethod:MonoBehaviour
 
 public abstract class Product
 {
-    
+    private List<string> mc_Part = new List<string>();
+
+    public virtual void AddPart(string Part) {
+        mc_Part.Add(Part);
+    }
 }
 
 public class ConcreteProductA : Product
