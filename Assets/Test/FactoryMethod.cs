@@ -14,6 +14,7 @@ public class FactoryMethod:MonoBehaviour
 
         ProductCreator<ConcreteProductB> productB = new ProductCreator<ConcreteProductB>();
         productB.CreatProduct();
+
         Debug.Log("=========================分界线=======================================");
         //泛型方法
         IProductCreator theProductCreator = new ConcreteProductCreator();
