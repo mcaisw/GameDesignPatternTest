@@ -85,6 +85,9 @@
     <Compile Include="Assets\MCScript\StatePatternTest.cs" />
     <Compile Include="Assets\MCScript\UITool.cs" />
     <Compile Include="Assets\MCScript\Weapon\IWeapon.cs" />
+    <Compile Include="Assets\Test\CubeCreator.cs" />
+    <Compile Include="Assets\Test\Test.cs" />
+    <Compile Include="Assets\Test\gameloop.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
