@@ -20,6 +20,7 @@ public class FlyWeightTest : MonoBehaviour {
         theUnshared1.Operator();
 
         theUnshared1.SetFlyWeight(theFlyWeight);
+
         UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1","","不共享的信息2");
 
         theUnshared1.Operator();
