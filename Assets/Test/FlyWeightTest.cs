@@ -86,7 +86,7 @@ public class UnShareConcreteFlyWeight {
 public class FlyWeightFactory
 {
     Dictionary<string, FlyWeight> mc_FlyWeightDict = new Dictionary<string, FlyWeight>();
-    //获得共享元件
+    //获得共享的组件
     public FlyWeight GetFlyWeight(string Key, string Content)
     {
         if (mc_FlyWeightDict.ContainsKey(Key))
@@ -99,13 +99,13 @@ public class FlyWeightFactory
         Debug.Log("New ConcreteFlyweight Key[" + Key + "] Content[" + Content + "]");
         return theFlyWeight;
     }
-    //获得非共享元件
+    //获得组件，只获得不共享的FlyWeight
     public UnShareConcreteFlyWeight GetUnShareFlyWeight(string Content)
     {
         return new UnShareConcreteFlyWeight(Content);
     }
 
-    //获取组件
+    //获取组件,包含共享部分的FlyWeight
     public UnShareConcreteFlyWeight GetUnShareFlyWeight(string Key, string SharedContent, string UnsharedContent)
     {
         FlyWeight SharedflyWeight = GetFlyWeight(Key, SharedContent);
