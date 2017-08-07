@@ -66,7 +66,7 @@ public class UnShareConcreteFlyWeight {
         UnShareContent = Content;
     }
 
-    //设置共享元件
+    //设置共享组件
     public void SetFlyWeight(FlyWeight theFlyWeight) {
         mc_FlyWeight = theFlyWeight;
     }
