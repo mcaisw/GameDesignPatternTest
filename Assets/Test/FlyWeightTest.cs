@@ -8,6 +8,7 @@ public class FlyWeightTest : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        StartCoroutine(checkInternetConnection((isConnected) =>{}));
         FlyWeightFactory theFactory = new FlyWeightFactory();
         theFactory.GetFlyWeight("1","共享组件1");
         theFactory.GetFlyWeight("2","共享组件2");
@@ -31,7 +32,22 @@ public class FlyWeightTest : MonoBehaviour {
 	void Update () {
 		
 	}
+    IEnumerator checkInternetConnection(Action<bool> action)
+    {
+        WWW www = new WWW("http://google.com");
+        yield return www;
+        if (www.error != null)
+        {
+            action(false);
+        }
+        else
+        {
+            action(true);
+        }
+    }
+   
 }
+
 
 public abstract class FlyWeight {
     protected string mc_content ;
