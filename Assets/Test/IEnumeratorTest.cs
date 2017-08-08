@@ -62,7 +62,7 @@ public class IEnumeratorTest : MonoBehaviour {
         People_Collection_Class _newPeople = new People_Collection_Class();
         foreach (Person item in _newPeople)
         {
-            Debug.Log("IEnumeratorAndIEnumerable" + item._age+item._name);
+            Debug.Log("IEnumeratorAndIEnumerable" + item._age + item._name);
         }
     }
 }
@@ -104,23 +104,32 @@ public class People:IEnumerable
 public class People_Collection_Class : IEnumerable
 {
     public Person[] _people = new Person[4] { new Person("鸣人", 12), new Person("佐助", 12), new Person("小樱", 12), new Person("卡卡西", 20) };
-    IEnumerator IEnumerable.GetEnumerator()
+
+    public IEnumerator GetEnumerator()
     {
-        return (IEnumerator)GetEnumerator();
+         return new People_IEnumerator(this);
     }
-    
-    public People_IEnumerator GetEnumerator()
-    {
-        return new People_IEnumerator(_people);
-    }
+
+    //#region 例子上的
+    //IEnumerator IEnumerable.GetEnumerator()
+    //{
+    //    return GetEnumerator();
+    //}
+
+    //public People_IEnumerator GetEnumerator()
+    //{
+    //    return new People_IEnumerator(_people);
+    //}
+    //#endregion
 }
 
 public class People_IEnumerator : IEnumerator
 {
     public Person[] _people = null;
-    public People_IEnumerator(Person[] people)
+    public People_IEnumerator(People_Collection_Class temp)//Person[] people)
     {
-        _people = people;
+        //_people = people;
+        _people = temp._people;
     }
     int position = -1;
     public object Current
