@@ -16,9 +16,11 @@ public class IEnumeratorTest : MonoBehaviour {
         SomeNumberPrint();
         People _people = new People();
 
-        foreach (var item in _people._people)
+        foreach (var item in _people)
         {
-            Debug.Log(item._name+ item._age);
+            Person i = null;
+            i = item as Person;
+            Debug.Log(i._age + i._name);
         }
     }
 	
