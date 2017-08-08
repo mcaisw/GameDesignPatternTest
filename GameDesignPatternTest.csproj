@@ -91,6 +91,7 @@
     <Compile Include="Assets\Test\CubeCreator.cs" />
     <Compile Include="Assets\Test\FactoryMethod.cs" />
     <Compile Include="Assets\Test\FlyWeightTest.cs" />
+    <Compile Include="Assets\Test\IEnumeratorTest.cs" />
     <Compile Include="Assets\Test\Test.cs" />
     <Compile Include="Assets\Test\gameloop.cs" />
   </ItemGroup>
