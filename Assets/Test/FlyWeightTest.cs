@@ -8,33 +8,40 @@ public class FlyWeightTest : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        StartCoroutine(checkInternetConnection((isConnected) =>{}));
-        FlyWeightFactory theFactory = new FlyWeightFactory();
-        theFactory.GetFlyWeight("1","共享组件1");
-        theFactory.GetFlyWeight("2","共享组件2");
-        theFactory.GetFlyWeight("3","共享组件3");
+        StartCoroutine(checkInternetConnection((isConnected) =>
+        {
+            Action<bool> act1 = new Action<bool>(DebugWWW);
+            act1(isConnected);
+        }
 
-        FlyWeight theFlyWeight = theFactory.GetFlyWeight("1","");
-        theFlyWeight.Operator();
+        )
+        );
+        //FlyWeightFactory theFactory = new FlyWeightFactory();
+        //theFactory.GetFlyWeight("1","共享组件1");
+        //theFactory.GetFlyWeight("2","共享组件2");
+        //theFactory.GetFlyWeight("3","共享组件3");
 
-        UnShareConcreteFlyWeight theUnshared1 = theFactory.GetUnShareFlyWeight("不共享的信息1");
-        theUnshared1.Operator();
+        //FlyWeight theFlyWeight = theFactory.GetFlyWeight("1","");
+        //theFlyWeight.Operator();
 
-        theUnshared1.SetFlyWeight(theFlyWeight);
+        //UnShareConcreteFlyWeight theUnshared1 = theFactory.GetUnShareFlyWeight("不共享的信息1");
+        //theUnshared1.Operator();
 
-        UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1","","不共享的信息2");
+        //theUnshared1.SetFlyWeight(theFlyWeight);
 
-        theUnshared1.Operator();
-        theUnshared2.Operator();
+        //UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1","","不共享的信息2");
+
+        //theUnshared1.Operator();
+        //theUnshared2.Operator();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     IEnumerator checkInternetConnection(Action<bool> action)
     {
-        WWW www = new WWW("http://google.com");
+        WWW www = new WWW("http://baidu.com");
         yield return www;
         if (www.error != null)
         {
@@ -44,6 +51,19 @@ public class FlyWeightTest : MonoBehaviour {
         {
             action(true);
         }
+    }
+
+    public void DebugWWW(bool isConnected) {
+        if (isConnected)
+        {
+            Debug.Log("1111");
+        }
+        else
+        {
+            Debug.Log("0000");
+
+        }
+
     }
    
 }
