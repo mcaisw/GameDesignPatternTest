@@ -21,12 +21,10 @@ public class IEnumeratorTest : MonoBehaviour {
         //IEnumeratorAndIEnumerable();
 
         #region Yield Test
-        MyList.Add(1);
-        MyList.Add(2);
-        MyList.Add(3);
-        MyList.Add(4);
-        MyList.Add(5);
-        MyList.Add(6);
+        for (int i = 0; i < 100; i++)
+        {
+            MyList.Add(i+1);
+        }
         DebugIEnumerable();
         #endregion
     }
@@ -79,7 +77,7 @@ public class IEnumeratorTest : MonoBehaviour {
         }
     }
 
-   static IEnumerable YieldIteration()
+   static IEnumerable YieldIteration()//要用static修饰
     {
         int i = 0;
         foreach (int item in MyList)
