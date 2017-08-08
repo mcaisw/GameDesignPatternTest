@@ -108,6 +108,10 @@ public class People_Collection_Class : IEnumerable
     public IEnumerator GetEnumerator()
     {
          return new People_IEnumerator(this);
+        /*
+         yield  return new People_IEnumerator(this);
+         之前用的是yield return ，但是返回的是一个People_IEnumerator类型的对象，
+         */
     }
 
     //#region 例子上的
