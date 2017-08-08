@@ -10,12 +10,12 @@ using UnityEngine;
 
 
 public class IEnumeratorTest : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         SomeNumberPrint();
         WithoutImplementIEnumerator();
         WithImplementIEnumerator();
+        IEnumeratorAndIEnumerable();
     }
 	
 	// Update is called once per frame
@@ -37,6 +37,7 @@ public class IEnumeratorTest : MonoBehaviour {
         }
     }
 
+    #region 应用 IEnumerable的类和没有应用 IEnumerable的类的foreach用法的区别
     void WithoutImplementIEnumerator()
     {
         PeopleWithoutIEnumerable _newPeople = new PeopleWithoutIEnumerable();
@@ -49,18 +50,25 @@ public class IEnumeratorTest : MonoBehaviour {
     void WithImplementIEnumerator()
     {
         People _people = new People();
-        foreach (var item in _people)
+        foreach (Person item in _people)
         {
-            Person i = null;
-            i = item as Person;
-            Debug.Log(i._age + i._name);
+            Debug.Log(item._age + item._name);
+        }
+    }
+    #endregion
+
+    void IEnumeratorAndIEnumerable()
+    {
+        People_Collection_Class _newPeople = new People_Collection_Class();
+        foreach (Person item in _newPeople)
+        {
+            Debug.Log("IEnumeratorAndIEnumerable" + item._age+item._name);
         }
     }
 }
 
 
-/*总结
- */
+#region IEnumerable的简单使用 Simple Use
 public class Person
 {
     public string _name;
@@ -90,3 +98,55 @@ public class People:IEnumerable
 }
 
 
+#endregion
+
+#region 自定义的IEnumerator的使用
+public class People_Collection_Class : IEnumerable
+{
+    public Person[] _people = new Person[4] { new Person("鸣人", 12), new Person("佐助", 12), new Person("小樱", 12), new Person("卡卡西", 20) };
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return (IEnumerator)GetEnumerator();
+    }
+    
+    public People_IEnumerator GetEnumerator()
+    {
+        return new People_IEnumerator(_people);
+    }
+}
+
+public class People_IEnumerator : IEnumerator
+{
+    public Person[] _people = null;
+    public People_IEnumerator(Person[] people)
+    {
+        _people = people;
+    }
+    int position = -1;
+    public object Current
+    {
+        get
+        {
+            try
+            {
+                return _people[position];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                throw new InvalidOperationException();
+            }
+        }
+    }
+
+    public bool MoveNext()
+    {
+        position++;
+        return (position < _people.Length);
+    }
+
+    public void Reset()
+    {
+        position = -1;
+    }
+}
+#endregion
