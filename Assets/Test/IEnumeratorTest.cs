@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //IEnumerator的练习 2017/8/8 10:53 
@@ -13,7 +14,12 @@ public class IEnumeratorTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SomeNumberPrint();
+        People _people = new People();
 
+        foreach (var item in _people._people)
+        {
+            Debug.Log(item._name+ item._age);
+        }
     }
 	
 	// Update is called once per frame
@@ -32,6 +38,30 @@ public class IEnumeratorTest : MonoBehaviour {
         foreach (var item in SomeNumber())
         {
             Debug.Log(item);
+        }
+    }
+}
+
+public class Person
+{
+    public string _name;
+    public int _age;
+
+    public Person(string name, int age)
+    {
+        _name = name;
+        _age = age;
+    }
+}
+public class People:IEnumerable
+{
+    public Person[] _people = new Person[4] { new Person("鸣人", 12), new Person("佐助", 12),new Person("小樱", 12),new Person("卡卡西", 20)};
+
+    public IEnumerator GetEnumerator()
+    {
+        for (int i = 0; i < _people.Length; i++)
+        {
+            yield return _people[i];
         }
     }
 }
