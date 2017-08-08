@@ -12,12 +12,9 @@ public class IEnumeratorTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        SomeNumberPrint();
 
-        foreach (var item in SomeNumber())
-        {
-            Debug.Log(item);
-        }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,4 +27,13 @@ public class IEnumeratorTest : MonoBehaviour {
         yield return 5;
         yield return 7;
     }
+
+    void SomeNumberPrint() {
+        foreach (var item in SomeNumber())
+        {
+            Debug.Log(item);
+        }
+    }
 }
+
+
