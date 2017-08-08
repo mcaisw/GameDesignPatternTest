@@ -88,12 +88,12 @@
     <Compile Include="Assets\MCScript\UITool.cs" />
     <Compile Include="Assets\MCScript\Weapon\IWeapon.cs" />
     <Compile Include="Assets\Test\BuilderMethod.cs" />
-    <Compile Include="Assets\Test\CubeCreator.cs" />
     <Compile Include="Assets\Test\FactoryMethod.cs" />
     <Compile Include="Assets\Test\FlyWeightTest.cs" />
     <Compile Include="Assets\Test\IEnumeratorTest.cs" />
-    <Compile Include="Assets\Test\Test.cs" />
-    <Compile Include="Assets\Test\gameloop.cs" />
+    <Compile Include="Assets\Test\ReferenceTest\CubeCreator.cs" />
+    <Compile Include="Assets\Test\ReferenceTest\Test.cs" />
+    <Compile Include="Assets\Test\ReferenceTest\gameloop.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
