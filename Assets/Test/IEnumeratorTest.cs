@@ -14,14 +14,8 @@ public class IEnumeratorTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SomeNumberPrint();
-        People _people = new People();
-
-        foreach (var item in _people)
-        {
-            Person i = null;
-            i = item as Person;
-            Debug.Log(i._age + i._name);
-        }
+        WithoutImplementIEnumerator();
+        WithImplementIEnumerator();
     }
 	
 	// Update is called once per frame
@@ -42,8 +36,31 @@ public class IEnumeratorTest : MonoBehaviour {
             Debug.Log(item);
         }
     }
+
+    void WithoutImplementIEnumerator()
+    {
+        PeopleWithoutIEnumerable _newPeople = new PeopleWithoutIEnumerable();
+        foreach (var item in _newPeople._people)
+        {
+            Debug.Log(item._name + item._age);
+        }
+    }
+
+    void WithImplementIEnumerator()
+    {
+        People _people = new People();
+        foreach (var item in _people)
+        {
+            Person i = null;
+            i = item as Person;
+            Debug.Log(i._age + i._name);
+        }
+    }
 }
 
+
+/*总结
+ */
 public class Person
 {
     public string _name;
@@ -54,6 +71,10 @@ public class Person
         _name = name;
         _age = age;
     }
+}
+public class PeopleWithoutIEnumerable
+{
+    public Person[] _people = new Person[4] { new Person("鸣人", 12), new Person("佐助", 12), new Person("小樱", 12), new Person("卡卡西", 20) };
 }
 public class People:IEnumerable
 {
