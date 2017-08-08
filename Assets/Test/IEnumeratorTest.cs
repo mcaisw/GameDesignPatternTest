@@ -10,16 +10,29 @@ using UnityEngine;
 
 
 public class IEnumeratorTest : MonoBehaviour {
+   static List<int> MyList = new List<int>();
+    
     // Use this for initialization
     void Start () {
-        SomeNumberPrint();
-        WithoutImplementIEnumerator();
-        WithImplementIEnumerator();
-        IEnumeratorAndIEnumerable();
+
+        //SomeNumberPrint();
+        //WithoutImplementIEnumerator();
+        //WithImplementIEnumerator();
+        //IEnumeratorAndIEnumerable();
+
+        #region Yield Test
+        MyList.Add(1);
+        MyList.Add(2);
+        MyList.Add(3);
+        MyList.Add(4);
+        MyList.Add(5);
+        MyList.Add(6);
+        DebugIEnumerable();
+        #endregion
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     public IEnumerable SomeNumber()
@@ -63,6 +76,24 @@ public class IEnumeratorTest : MonoBehaviour {
         foreach (Person item in _newPeople)
         {
             Debug.Log("IEnumeratorAndIEnumerable" + item._age + item._name);
+        }
+    }
+
+   static IEnumerable YieldIteration()
+    {
+        int i = 0;
+        foreach (int item in MyList)
+        {
+            i+= item;
+            yield return i;
+        }
+        
+    }
+
+    void DebugIEnumerable() {
+        foreach (var item in YieldIteration())
+        {
+            Debug.Log(item);
         }
     }
 }
