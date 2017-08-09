@@ -8,14 +8,8 @@ public class FlyWeightTest : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        StartCoroutine(checkInternetConnection((isConnected) =>
-        {
-            Action<bool> act1 = new Action<bool>(DebugWWW);
-            act1(isConnected);
-        }
-        ));
-
-        //FlyWeightDebugTest();
+       // NetWorkTest();
+        FlyWeightDebugTest();
     }
 
     // Update is called once per frame
@@ -23,6 +17,14 @@ public class FlyWeightTest : MonoBehaviour {
 		
 	}
 
+    void NetWorkTest() {
+        StartCoroutine(checkInternetConnection((isConnected) =>
+        {
+            Action<bool> act1 = new Action<bool>(DebugWWW);
+            act1(isConnected);
+        }
+       ));
+    }
     void FlyWeightDebugTest() {
 
         FlyWeightFactory theFactory = new FlyWeightFactory();
@@ -140,8 +142,9 @@ public class FlyWeightFactory
         {
             return mc_FlyWeightDict[Key];
         }
-
+        //如果找不到共享的组件，就新建一个对象
         ConcreteFlyWeight theFlyWeight = new ConcreteFlyWeight(Content);
+        //并添加到mc_FlyWeightDict字典里，方便后面直接从里面取
         mc_FlyWeightDict[Key] = theFlyWeight;
         Debug.Log("New ConcreteFlyweight Key[" + Key + "] Content[" + Content + "]");
         return theFlyWeight;
