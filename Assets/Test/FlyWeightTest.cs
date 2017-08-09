@@ -13,32 +13,36 @@ public class FlyWeightTest : MonoBehaviour {
             Action<bool> act1 = new Action<bool>(DebugWWW);
             act1(isConnected);
         }
+        ));
 
-        )
-        );
-        //FlyWeightFactory theFactory = new FlyWeightFactory();
-        //theFactory.GetFlyWeight("1","共享组件1");
-        //theFactory.GetFlyWeight("2","共享组件2");
-        //theFactory.GetFlyWeight("3","共享组件3");
-
-        //FlyWeight theFlyWeight = theFactory.GetFlyWeight("1","");
-        //theFlyWeight.Operator();
-
-        //UnShareConcreteFlyWeight theUnshared1 = theFactory.GetUnShareFlyWeight("不共享的信息1");
-        //theUnshared1.Operator();
-
-        //theUnshared1.SetFlyWeight(theFlyWeight);
-
-        //UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1","","不共享的信息2");
-
-        //theUnshared1.Operator();
-        //theUnshared2.Operator();
+        //FlyWeightDebugTest();
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
+
+    void FlyWeightDebugTest() {
+
+        FlyWeightFactory theFactory = new FlyWeightFactory();
+        theFactory.GetFlyWeight("1", "共享组件1");
+        theFactory.GetFlyWeight("2", "共享组件2");
+        theFactory.GetFlyWeight("3", "共享组件3");
+
+        FlyWeight theFlyWeight = theFactory.GetFlyWeight("1", "");
+        theFlyWeight.Operator();
+
+        UnShareConcreteFlyWeight theUnshared1 = theFactory.GetUnShareFlyWeight("不共享的信息1");
+        theUnshared1.Operator();
+
+        theUnshared1.SetFlyWeight(theFlyWeight);
+
+        UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1", "", "不共享的信息2");
+
+        theUnshared1.Operator();
+        theUnshared2.Operator();
+    }
     IEnumerator checkInternetConnection(Action<bool> action)
     {
         WWW www = new WWW("http://baidu.com");
