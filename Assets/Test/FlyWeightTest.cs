@@ -8,7 +8,7 @@ public class FlyWeightTest : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-       // NetWorkTest();
+        // NetWorkTest();
         //FlyWeightDebugTest();
         FlyWeightExcercise();
     }
@@ -20,6 +20,7 @@ public class FlyWeightTest : MonoBehaviour {
     void FlyWeightExcercise() {
         EnemyModelFactory theModelFactory = new EnemyModelFactory();
         Debug.Log("theModelFactory==="+theModelFactory);
+        //EnemyModelAbstract如果继承了MonoBehaviour，根本就new不出来，即不能实例化EnemyModelAbstract，分配内存
         EnemyModelAbstract _newEnemyModel = theModelFactory.GetEnemyModel("Enemy");
         Debug.Log("_newEnemyModel===" + _newEnemyModel);
         //EnemyModelAbstract _newEnemyModel2= theModelFactory.GetEnemyModel("Enemy");
@@ -158,6 +159,7 @@ public class FlyWeightFactory
         //并添加到mc_FlyWeightDict字典里，方便后面直接从里面取
         mc_FlyWeightDict[Key] = theFlyWeight;
         Debug.Log("New ConcreteFlyweight Key[" + Key + "] Content[" + Content + "]");
+        Debug.Log("ConcreteFlyWeight theFlyWeight===="+ theFlyWeight);
         return theFlyWeight;
     }
     //获得组件，只获得不共享的FlyWeight
@@ -176,7 +178,7 @@ public class FlyWeightFactory
     }
 
 }
-public abstract class EnemyModelAbstract : MonoBehaviour
+public abstract class EnemyModelAbstract
 {
     public EnemyModelAbstract()
     {
@@ -184,7 +186,7 @@ public abstract class EnemyModelAbstract : MonoBehaviour
     public virtual void CreatCube()
     {
         Debug.Log("CreatCube()");
-        GameObject temp = Instantiate(Resources.Load("Characters/Enemy/Enemy1")) as GameObject;
+        //GameObject temp = Instantiate(Resources.Load("Characters/Enemy/Enemy1")) as GameObject;
     }
 }
 public class ConcreteEnemyModel : EnemyModelAbstract
