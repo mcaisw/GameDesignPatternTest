@@ -28,16 +28,18 @@ public class FlyWeightTest : MonoBehaviour {
     void FlyWeightDebugTest() {
 
         FlyWeightFactory theFactory = new FlyWeightFactory();
+        //获得共享组件FlyWeight对象
         theFactory.GetFlyWeight("1", "共享组件1");
         theFactory.GetFlyWeight("2", "共享组件2");
         theFactory.GetFlyWeight("3", "共享组件3");
 
+        //新建一个共享组件的对象，如果有，直接从工厂获得。没有就新建
         FlyWeight theFlyWeight = theFactory.GetFlyWeight("1", "");
         theFlyWeight.Operator();
-
+        //不共享的FlyWeight
         UnShareConcreteFlyWeight theUnshared1 = theFactory.GetUnShareFlyWeight("不共享的信息1");
         theUnshared1.Operator();
-
+        //把刚才的FlyWeight对象设置成theUnshared1的共享组件
         theUnshared1.SetFlyWeight(theFlyWeight);
 
         UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1", "", "不共享的信息2");
