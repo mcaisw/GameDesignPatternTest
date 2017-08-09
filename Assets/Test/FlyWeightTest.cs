@@ -9,14 +9,23 @@ public class FlyWeightTest : MonoBehaviour {
 	void Start ()
     {
        // NetWorkTest();
-        FlyWeightDebugTest();
+        //FlyWeightDebugTest();
+        FlyWeightExcercise();
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
+    void FlyWeightExcercise() {
+        EnemyModelFactory theModelFactory = new EnemyModelFactory();
+        Debug.Log("theModelFactory==="+theModelFactory);
+        EnemyModelAbstract _newEnemyModel = theModelFactory.GetEnemyModel("Enemy");
+        Debug.Log("_newEnemyModel===" + _newEnemyModel);
+        //EnemyModelAbstract _newEnemyModel2= theModelFactory.GetEnemyModel("Enemy");
+        //Debug.Log(_newEnemyModel2.name);
 
+    }
     void NetWorkTest() {
         StartCoroutine(checkInternetConnection((isConnected) =>
         {
@@ -42,7 +51,7 @@ public class FlyWeightTest : MonoBehaviour {
         //把刚才的FlyWeight对象设置成theUnshared1的共享组件
         theUnshared1.SetFlyWeight(theFlyWeight);
 
-        UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("1", "", "不共享的信息2");
+        UnShareConcreteFlyWeight theUnshared2 = theFactory.GetUnShareFlyWeight("4", "", "不共享的信息2");
 
         theUnshared1.Operator();
         theUnshared2.Operator();
@@ -164,5 +173,40 @@ public class FlyWeightFactory
         UnShareConcreteFlyWeight theFlyWeight = new UnShareConcreteFlyWeight(UnsharedContent);
         theFlyWeight.SetFlyWeight(SharedflyWeight);
         return theFlyWeight;
+    }
+
+}
+public abstract class EnemyModelAbstract : MonoBehaviour
+{
+    public EnemyModelAbstract()
+    {
+    }
+    public virtual void CreatCube()
+    {
+        Debug.Log("CreatCube()");
+        GameObject temp = Instantiate(Resources.Load("Characters/Enemy/Enemy1")) as GameObject;
+    }
+}
+public class ConcreteEnemyModel : EnemyModelAbstract
+{
+    public ConcreteEnemyModel()
+    {
+    }
+   
+}
+public class EnemyModelFactory
+{
+    Dictionary<string, EnemyModelAbstract> EnemyModelDic = new Dictionary<string, EnemyModelAbstract>();
+    public EnemyModelAbstract GetEnemyModel(string key)
+    {
+        if (EnemyModelDic.ContainsKey(key))
+        {
+            Debug.Log("有模型");
+            return EnemyModelDic[key];
+        }
+        Debug.Log("没有模型");
+        ConcreteEnemyModel _newModel = new ConcreteEnemyModel();
+        EnemyModelDic[key] = _newModel;
+        return  _newModel;
     }
 }
