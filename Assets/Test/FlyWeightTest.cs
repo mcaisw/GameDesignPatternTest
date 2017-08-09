@@ -73,21 +73,23 @@ public class FlyWeightTest : MonoBehaviour {
 }
 
 
-public abstract class FlyWeight {
+public abstract class FlyWeight
+{//抽象FlyWeight类
     protected string mc_content ;
+    //构造函数
     public FlyWeight(string content) {
         mc_content = content;
     }
-
+    //获得当前的内容
     public string GetMyContent() {
         return mc_content;
     }
-
+    //抽象函数，让继承的子类实现
     public abstract void Operator();
 }
 
 public class ConcreteFlyWeight : FlyWeight
-{
+{//FlyWeight的实现类
     public ConcreteFlyWeight(string content):base(content)
     {
 
@@ -100,8 +102,10 @@ public class ConcreteFlyWeight : FlyWeight
 
 public class UnShareConcreteFlyWeight {
     FlyWeight mc_FlyWeight = null;//共享的元件
-    string UnShareContent = null;//不共享的元件
 
+    string UnShareContent = null;//不共享的内容
+
+    //构造函数
     public UnShareConcreteFlyWeight(string Content) {
         UnShareContent = Content;
     }
@@ -120,12 +124,15 @@ public class UnShareConcreteFlyWeight {
         Debug.Log(MSG);
     }
 
-    //生成FlyWeight的类
+    
     
 }
 public class FlyWeightFactory
-{
+{//工厂类，产生对象的类
+
+    //存储FlyWeight对象的字典
     Dictionary<string, FlyWeight> mc_FlyWeightDict = new Dictionary<string, FlyWeight>();
+
     //获得共享的组件
     public FlyWeight GetFlyWeight(string Key, string Content)
     {
