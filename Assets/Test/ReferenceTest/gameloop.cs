@@ -18,13 +18,38 @@ public  class gameloop : MonoBehaviour
         theCube= cubeCreat.CreatCube("Enemy3");
         test.GetTheCube(theCube);
         test.TestFunc();
+
+        ABCTest();
+
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
 		
 	}
 
+    void ABCTest() {
+        ABC A = new ABC();
+        Debug.Log(A.myName);
+        ABC B = new ABC();
+        Debug.Log(B.myName);
+
+        B.myName = "B";
+        Debug.Log(B.myName);
+        Debug.Log(A.myName);
+
+        ABC C = new ABC();
+        Debug.Log(C.myName);
+    }
    
 }
+
+public class ABC
+{
+    public string myName = "ABC";
+
+}
+
+

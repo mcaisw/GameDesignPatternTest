@@ -53,7 +53,7 @@ public abstract class ICharacter {
     public virtual void SetCharacterAttr(ICharacterAttr CharacterAttr) {
         mc_CharacterAttr = CharacterAttr;
         mc_CharacterAttr.InitAttr();
-        mc_NavMeshAgent.speed = mc_CharacterAttr.MoveSpeed;
+        //mc_NavMeshAgent.speed = mc_CharacterAttr.MoveSpeed;
     }
 
     #endregion
