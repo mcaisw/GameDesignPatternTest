@@ -10,11 +10,29 @@ public abstract class ICharacterAttr {
     public ICharacterAttr() { }
 
     //当前的Hp
-    protected int m_CurrentHp;
+    protected int mc_CurrentHp;
 
+    //当前Hp属性访问器
+    public int GetMyCurrentHp {
+        get { return mc_CurrentHp; }
+    }
+    public virtual int GetMaxHp
+    {
+        get {return mc_BaseAttr.GetMaxHealth; } 
+    }
+    //移动速度
+    public virtual float GetMoveSpeed
+    {
+        get { return mc_BaseAttr.GetMoveSpeed; }
+    }
     //设置基本属性
     public void SetBaseAttr(BaseAttr baseAttr) {
         mc_BaseAttr = baseAttr;
+    }
+
+    //获取基本属性
+    public BaseAttr GetBaseAttr() {
+        return mc_BaseAttr;
     }
     //设置计算策略
     public void SetAttrStrategy(IAttrStrategy AttrStrategy) {
@@ -25,8 +43,15 @@ public abstract class ICharacterAttr {
         return mc_AttrStrategy;
     }
 
+    //回满当前血值
+    public void FullCurrentHp() {
+        mc_CurrentHp = mc_BaseAttr.GetMaxHealth;
+    }
+  
+    //初始化角色
     public virtual void InitAttr() {
         mc_AttrStrategy.InitAttr(this);
+        FullCurrentHp();
     }
 
 
