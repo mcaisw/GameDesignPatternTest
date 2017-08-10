@@ -23,8 +23,8 @@ public class FlyWeightTest : MonoBehaviour {
         //EnemyModelAbstract如果继承了MonoBehaviour，根本就new不出来，即不能实例化EnemyModelAbstract，分配内存
         EnemyModelAbstract _newEnemyModel = theModelFactory.GetEnemyModel("Enemy");
         Debug.Log("_newEnemyModel===" + _newEnemyModel);
-        //EnemyModelAbstract _newEnemyModel2= theModelFactory.GetEnemyModel("Enemy");
-        //Debug.Log(_newEnemyModel2.name);
+        EnemyModelAbstract _newEnemyModel2 = theModelFactory.GetEnemyModel("Enemy");
+        Debug.Log("_newEnemyMode2===" + _newEnemyModel2);
 
     }
     void NetWorkTest() {
