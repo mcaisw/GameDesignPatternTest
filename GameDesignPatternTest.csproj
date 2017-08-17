@@ -92,6 +92,8 @@
     <Compile Include="Assets\Test\FactoryMethod.cs" />
     <Compile Include="Assets\Test\FlyWeightTest.cs" />
     <Compile Include="Assets\Test\IEnumeratorTest.cs" />
+    <Compile Include="Assets\Test\InheritContainMonoBehaviorClass.cs" />
+    <Compile Include="Assets\Test\InheritMonoBehaviorParentClass.cs" />
     <Compile Include="Assets\Test\ReferenceTest\CubeCreator.cs" />
     <Compile Include="Assets\Test\ReferenceTest\Test.cs" />
     <Compile Include="Assets\Test\ReferenceTest\gameloop.cs" />
